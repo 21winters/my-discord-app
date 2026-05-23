@@ -8,9 +8,9 @@ const url = `https://discord.com/api/v10/applications/${config.DISCORD_CLIENT_ID
 // supported types: number_lt=1, number_gt=2, number_eq=3 number_neq=4, datetime_lt=5, datetime_gt=6, boolean_eq=7, boolean_neq=8
 const body = [
   {
-    key: 'cookieseaten',
-    name: 'Cookies Eaten',
-    description: 'Cookies Eaten Greater Than',
+    key: 'inter_knot_level',
+    name: 'Inter-Knot Level',
+    description: 'ZZZ lvl',
     type: 2,
   },
   {
@@ -43,3 +43,19 @@ if (response.ok) {
   const data = await response.text();
   console.log(data);
 }
+
+// register.js — запускается один раз
+const body = [
+  {
+    key: "inter_knot_level",
+    name: "Inter-Knot Level",
+    description: "Уровень в ZZZ",
+    type: 2  // NUMBER_LESS_THAN_OR_EQUAL
+  }
+];
+
+await fetch(`https://discord.com/api/v10/applications/${CLIENT_ID}/role-connections/metadata`, {
+  method: "PUT",
+  headers: { Authorization: `Bot ${TOKEN}`, "Content-Type": "application/json" },
+  body: JSON.stringify(body)
+});
