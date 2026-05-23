@@ -4,10 +4,7 @@ import cookieParser from 'cookie-parser';
 import config from './config.js';
 import * as discord from './discord.js';
 import * as storage from './storage.js';
-import { register } from './register.js';
 
-// Регистрируем метаданные при старте
-register();
 
 /**
  * Main HTTP server used for the bot.
