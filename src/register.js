@@ -59,3 +59,16 @@ await fetch(`https://discord.com/api/v10/applications/${CLIENT_ID}/role-connecti
   headers: { Authorization: `Bot ${TOKEN}`, "Content-Type": "application/json" },
   body: JSON.stringify(body)
 });
+
+// Записываем данные пользователя
+await fetch(`https://discord.com/api/v10/users/@me/applications/${CLIENT_ID}/role-connection`, {
+  method: "PUT",
+  headers: { Authorization: `Bearer ${userAccessToken}`, "Content-Type": "application/json" },
+  body: JSON.stringify({
+    platform_name: "Zenless Zone Zero",  // название под аватаркой
+    platform_username: "Aish1teiru21",          // никнейм
+    metadata: {
+      inter_knot_level: 60              // твои данные
+    }
+  })
+});
